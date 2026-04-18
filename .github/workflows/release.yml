@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "tools/syn-probe/**"
 
 permissions:
   contents: write
@@ -18,10 +16,9 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version-file: tools/syn-probe/go.mod
+          go-version-file: go.mod
 
       - name: Build binaries
-        working-directory: tools/syn-probe
         run: make all
 
       - name: Create or update release
@@ -29,8 +26,8 @@ jobs:
         with:
           tag_name: syn-probe
           name: syn-probe
-          body: Half-open TCP SYN port prober. See [README](tools/syn-probe/README.md) for details.
+          body: Half-open TCP SYN port prober. See [README](README.md) for details.
           make_latest: false
           files: |
-            tools/syn-probe/syn-probe-linux-amd64
-            tools/syn-probe/syn-probe-linux-arm64
+            syn-probe-linux-amd64
+            syn-probe-linux-arm64

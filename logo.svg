@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <rect width="256" height="256" rx="24" fill="#0f172a"/>
+
+  <!-- Vertical timeline lines for the two nodes -->
+  <line x1="56" y1="48" x2="56" y2="208" stroke="#334155" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="200" y1="48" x2="200" y2="208" stroke="#334155" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Node circles -->
+  <circle cx="56" cy="40" r="8" fill="#2dd4bf"/>
+  <circle cx="200" cy="40" r="8" fill="#64748b"/>
+
+  <!-- SYN arrow (left to right) -->
+  <line x1="64" y1="88" x2="184" y2="108" stroke="#2dd4bf" stroke-width="2.5"/>
+  <polygon points="192,110 180,104 182,114" fill="#2dd4bf"/>
+  <text x="118" y="82" text-anchor="middle" fill="#2dd4bf" font-family="monospace" font-size="13" font-weight="bold">SYN</text>
+
+  <!-- SYN-ACK arrow (right to left) -->
+  <line x1="192" y1="132" x2="72" y2="152" stroke="#2dd4bf" stroke-width="2.5"/>
+  <polygon points="64,154 76,148 74,158" fill="#2dd4bf"/>
+  <text x="138" y="126" text-anchor="middle" fill="#2dd4bf" font-family="monospace" font-size="13" font-weight="bold">SYN-ACK</text>
+
+  <!-- RST arrow (left to right, severed) -->
+  <line x1="64" y1="176" x2="120" y2="189" stroke="#f43f5e" stroke-width="2.5"/>
+  <!-- Break/cut mark -->
+  <line x1="124" y1="183" x2="136" y2="197" stroke="#f43f5e" stroke-width="3" stroke-linecap="round"/>
+  <line x1="136" y1="183" x2="124" y2="197" stroke="#f43f5e" stroke-width="3" stroke-linecap="round"/>
+  <text x="100" y="170" text-anchor="middle" fill="#f43f5e" font-family="monospace" font-size="13" font-weight="bold">RST</text>
+</svg>

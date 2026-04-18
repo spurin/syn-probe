@@ -1,0 +1,36 @@
+name: syn-probe
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "tools/syn-probe/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: tools/syn-probe/go.mod
+
+      - name: Build binaries
+        working-directory: tools/syn-probe
+        run: make all
+
+      - name: Create or update release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: syn-probe
+          name: syn-probe
+          body: Half-open TCP SYN port prober. See [README](tools/syn-probe/README.md) for details.
+          make_latest: false
+          files: |
+            tools/syn-probe/syn-probe-linux-amd64
+            tools/syn-probe/syn-probe-linux-arm64
